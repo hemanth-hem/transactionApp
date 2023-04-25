@@ -1,8 +1,7 @@
-const Services = () => {
+const Services = () =>{
     return (
-        <h1>
-        Services
-        </h1>
+        <h1>Services</h1>
     );
-  } 
-  export default Services;
+}
+
+export default Services;
