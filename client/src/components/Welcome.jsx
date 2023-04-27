@@ -3,6 +3,7 @@ import React, {useContext} from 'react';
 import {AiFillPlayCircle} from "react-icons/ai";
 import {SiEthereum} from "react-icons/si";
 import {BsInfoCircle} from "react-icons/bs";
+import { shortenAddress } from "../utils/shortenAddress";
 
 import { TransactionContext } from "../context/transactionsContext";
 import {Loader} from './';
@@ -21,7 +22,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 
 const Welcome = () =>{
 
-    const {connectWallet, currentAccount,formData, sendTransaction, handleChange} = useContext(TransactionContext);
+    const {connectWallet, currentAccount,formData, sendTransaction, handleChange, isLoading} = useContext(TransactionContext);
 
     const handleSubmit = (e) => {
       const { addressTo, amount, keyword, message } = formData;
@@ -41,9 +42,9 @@ const Welcome = () =>{
                     Send Crypto <br /> across the world
                 </h1>
                 <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
-                    Explore the crypto world. Buy and sell cryptocurrencies easily on Krypto.
+                    Explore the crypto world. Buy and sell cryptocurrencies easily on Ethereum.
                 </p>
-                {!currentAccount && (
+                {currentAccount && (
                   <button
                       type = "button"
                       onClick = {connectWallet}
@@ -83,7 +84,8 @@ const Welcome = () =>{
                     </div>
                     <div>
                     <p className="text-white font-light text-sm">
-                        Address
+
+                      {shortenAddress(currentAccount)}
                     </p>
                     <p className="text-white font-semibold text-lg mt-1">
                         Ethereum
@@ -99,8 +101,8 @@ const Welcome = () =>{
             <Input placeholder="Enter Message" name="message" type="text" handleChange={handleChange} />
 
             <div className="h-[1px] w-full bg-gray-400 my-2" />
-            {false? (
-               <Loader />
+            {isLoading? (
+               <Loader/>
               ): (
                 <button
                   type="button"

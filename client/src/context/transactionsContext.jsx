@@ -94,9 +94,9 @@ const getEthereumContract = () => {
               console.log(`Success - ${transactionHash.hash}`);
               setIsLoading(false);
 
-              const transactionsCount = await transactionContract.getTransactionCount();
+              // const transactionsCount = await transactionContract.getTransactionCount();
 
-              setTransactionCount(transactionCount.toNumber());
+              // setTransactionCount(transactionCount.toNumber());
 
         } catch (error) {
 
