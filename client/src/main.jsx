@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 
-import {TransactionProvider} from './context/transactionsContext.jsx';
+import {TransactionProvider} from './context/TransactionsContext.jsx';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
