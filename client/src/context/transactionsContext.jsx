@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 
-// const ethers = require("ethers");
-// const BigNumber  = require("ethers");
 
 import { contractABI, contractAddress } from "../utils/constants";
 
